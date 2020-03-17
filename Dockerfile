@@ -4,7 +4,7 @@ ENV PYTHONUNBUFFERED 1
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV DEBIAN_FRONTEND=noninteractive
 
-ARG PACKAGES="libpq-dev libxml2 libxslt1-dev libfreetype6 libjpeg-dev libmaxminddb-dev bash git tar gzip inkscape libmagic-dev"
+ARG PACKAGES="libpq-dev libxml2 libxslt1-dev libfreetype6 libjpeg-dev libmaxminddb-dev bash git tar gzip inkscape libmagic-dev gcc musl-dev linux-headers openblas-dev lapack g++"
 ARG BUILD_DEPS="gcc g++ postgresql libxml2-dev libxslt-dev libfreetype6 libffi-dev libjpeg-dev autoconf automake libtool make dos2unix libvips libvips-dev"
 WORKDIR /code
 
