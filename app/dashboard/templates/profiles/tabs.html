@@ -93,6 +93,22 @@
             {% if spent_total %}<span  class="nav-badge">(${{spent_total}})</span>{%endif%}
           </button>
         {% endif %}
+        {% if profile.related_profiles|length %}
+          <button type="button" id="nav-description" href="{{profile.url}}/related"
+            class="text-center section-tab {% if tab == "related" %} active {% endif %}">
+            <i class="fas fa-eye"></i>
+            Related
+            <span>{{profile.related_profiles|length}}</span>
+          </button>
+        {% endif %}
+        {% if profile.match_profiles|length %}
+          <button type="button" id="nav-description" href="{{profile.url}}/matches"
+            class="text-center section-tab {% if tab == "matches" %} active {% endif %}">
+            <i class="fas fa-eye"></i>
+            Matches
+            <span>{{profile.match_profiles|length}}</span>
+          </button>
+        {% endif %}
       </div>
     </div>
   </div>
@@ -134,6 +150,10 @@
             {% include 'profiles/tab_quests.html' %}
           {% elif tab == 'hackathons' %}
             {% include 'profiles/tab_hackathons.html' %}
+          {% elif tab == 'related' %}
+            {% include 'profiles/tab_matches.html' with title="Related Profiles" items=profile.related_profiles %}
+          {% elif tab == 'matches' %}
+            {% include 'profiles/tab_matches.html' with title="Matched Profiles" items=profile.match_profiles %}
           {% endif %}
         </div>
       </div>
